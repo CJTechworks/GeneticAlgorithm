@@ -26,8 +26,11 @@ public class TestGeneticAlgorithn {
 					String [] arr = {"Reproduction", "Mutation", "Selection"};
 					Random random = new Random();
 					int select = random.nextInt(arr.length);
+					// get the abstract factory
 					GeneticAbstractFactory geneticAbstractFactory = new GeneticConcreteFactory();
+					// get the strategy based on the random selection. If we need, we can add the strategy to the input as the number mentioned above
 					GeneticAlgorithm geneticAlgorithm = geneticAbstractFactory.getStrategy(arr[select]);
+					// run the genetic algorithm logic
 					geneticAlgorithm.doGAProcess();
 						System.out.println("\n-----------" );
 					}
