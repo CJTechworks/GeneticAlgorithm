@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class GeneticFactory {
 	 private static Map <String,GeneticAlgorithm> geneticMap =
-             new HashMap<>();
+             new HashMap();
 
 	 static {
 		 geneticMap.put("Reproduction",
