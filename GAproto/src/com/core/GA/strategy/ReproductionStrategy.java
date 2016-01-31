@@ -1,4 +1,6 @@
-package com.core.GA;
+package com.core.GA.strategy;
+
+import com.core.GA.GeneticAlgorithm;
 
 public class ReproductionStrategy implements GeneticAlgorithm {
 

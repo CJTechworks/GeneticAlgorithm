@@ -1,10 +1,14 @@
-package com.core.GA;
+package com.core.GA.test;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Random;
 
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+
+import com.core.GA.GeneticAlgorithm;
+import com.core.GA.factory.GeneticAbstractFactory;
+import com.core.GA.factory.GeneticConcreteFactory;
 
 public class TestGeneticAlgorithn {
 
@@ -14,7 +18,7 @@ public class TestGeneticAlgorithn {
 				
 				@Override
 				public void run() {
-					
+				
 					String num =   JOptionPane.showInputDialog(null,"Enter Number of Generation");
 					
 					for (int i =1;i<=Integer.parseInt(num);i++){
@@ -22,12 +26,11 @@ public class TestGeneticAlgorithn {
 					String [] arr = {"Reproduction", "Mutation", "Selection"};
 					Random random = new Random();
 					int select = random.nextInt(arr.length);
-						GeneticFactory.getInstance(arr[select]).doGAProcess();;
+					GeneticAbstractFactory geneticAbstractFactory = new GeneticConcreteFactory();
+					GeneticAlgorithm geneticAlgorithm = geneticAbstractFactory.getStrategy(arr[select]);
+					geneticAlgorithm.doGAProcess();
 						System.out.println("\n-----------" );
 					}
-					
-					
-					
 				}
 			});
 		} catch (InvocationTargetException e) {
