@@ -30,10 +30,10 @@ public class GeneticConcreteFactory extends GeneticAbstractFactory{
 			return getReproductionStrategy();
 		}
 		else if("Mutation".equalsIgnoreCase(type)){
-			return this.getReproductionStrategy();
+			return this.getMutationStrategy();
 		}
 		else if("Selection".equalsIgnoreCase(type)){
-			return this.getReproductionStrategy();
+			return this.getSelectionStrategy();
 		}
 		return null;
 	
