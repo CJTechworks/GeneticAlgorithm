@@ -1,0 +1,54 @@
+Java doc for the Singleton, Strategy and Factory Design Patterns using genetic algorithm
+
+com.core.GA.GeneticAlgorithm
+	core interface for the genetic algorithm.  this is the interface we need to implement different strategies. 
+
+com.core.GA.GeneticAlgorithm.GeneticAbstractFactory:
+	abstact factory class to return the the genetic algorithm based on the client stategy.
+
+com.core.GA.GeneticAlgorithm.GeneticConcreteFactory:
+	this class is the concrete factory class which returns the specific strategy requested 
+	by the client.
+
+com.core.GA.GeneticAlgorithm.MutationStrategy:
+	This class is the strategy class implementation for mutation strategy.this class implements the genetic algorithm interface.
+this class is also singleton class and there will only one instance created for java virtual machine.
+
+com.core.GA.GeneticAlgorithm.ReproductionStrategy:
+	this is the implementation class for reproduction stategy. this class implements the genetic algorithm interface.this class is also singleton class and there will only one instance created for java virtual machine.
+
+com.core.GA.GeneticAlgorithm.SelectionStrategy:
+	this is the implementation class for selection stategy. this class implements the genetic algorithm interface.this class is also singleton class and there will only one instance created for java virtual machine.
+
+com.core.GA.test.TestGeneticAlgorithn:
+	this is the client code for dynamic input. The input is the number of generations required. this client code has random logic to decide which strategy to execute out of 3 available strategies, Selection, Reproduction and mutation. 
+
+
+Sample output for population size of 5:
+GENERATION: 1
+MUTATION: mutating new offspring at each locus...
+
+-----------
+GENERATION: 2
+REPRODUCTION: Placing new offspring in a new population...
+
+-----------
+GENERATION: 3
+SELECTION : Selecting two parent chromosomes from a population according to their fitness...
+
+-----------
+GENERATION: 4
+SELECTION : Selecting two parent chromosomes from a population according to their fitness...
+
+-----------
+GENERATION: 5
+SELECTION : Selecting two parent chromosomes from a population according to their fitness...
+
+-----------
+
+
+
+
+
+
+

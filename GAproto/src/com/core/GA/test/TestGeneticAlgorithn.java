@@ -11,7 +11,7 @@ import com.core.GA.factory.GeneticAbstractFactory;
 import com.core.GA.factory.GeneticConcreteFactory;
 /**
  * TestGeneticAlgorithn - this is the client code for dynamic input. The input is the number of generations required. 
- * @author JaiDia
+ * @author Shyam Ravichandran
  *
  */
 public class TestGeneticAlgorithn {
