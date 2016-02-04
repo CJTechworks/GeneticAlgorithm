@@ -1,6 +1,8 @@
 package com.core.GA.factory;
 
 import com.core.GA.GeneticAlgorithm;
+import com.core.GA.strategy.CrossOverStrategy;
+import com.core.GA.strategy.EvaluvationStrategy;
 import com.core.GA.strategy.MutationStrategy;
 import com.core.GA.strategy.ReproductionStrategy;
 import com.core.GA.strategy.SelectionStrategy;
@@ -42,8 +44,26 @@ public class GeneticConcreteFactory extends GeneticAbstractFactory{
 		else if("Selection".equalsIgnoreCase(type)){
 			return this.getSelectionStrategy();
 		}
+		else if("CrossOver".equalsIgnoreCase(type)){
+			return this.getCrossOverStrategy();
+		}
+		else if("Evaluvation".equalsIgnoreCase(type)){
+			return this.getEvaluvationStrategy();
+		}
 		return null;
 	
+	}
+
+	@Override
+	public GeneticAlgorithm getEvaluvationStrategy() {
+		// TODO Auto-generated method stub
+		return EvaluvationStrategy.getInstance();
+	}
+
+	@Override
+	public GeneticAlgorithm getCrossOverStrategy() {
+		// TODO Auto-generated method stub
+		return CrossOverStrategy.getInstance();
 	}
 
 }

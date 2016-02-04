@@ -9,7 +9,7 @@ import com.core.utilility.Individual;
  * @author Shyam Ravichandran
  *
  */
-public class MutationStrategy implements GeneticAlgorithm {
+public class CrossOverStrategy implements GeneticAlgorithm {
 	private static final double uniformRate = 0.5;
     private static final double mutationRate = 0.015;
     private static final int tournamentSize = 5;
@@ -18,16 +18,16 @@ public class MutationStrategy implements GeneticAlgorithm {
 	// static instance for each stragegy. this ensures that it is singleton class and 
 	// only one object exist
 
-	private static MutationStrategy instance = new MutationStrategy();
+	private static CrossOverStrategy instance = new CrossOverStrategy();
 	
 	// private constructor so that the client can't initialize it.
-	private MutationStrategy() {
+	private CrossOverStrategy() {
 		
 	}
 	/*
 	 * singleton get instance method
 	 */
-	public static MutationStrategy getInstance() {
+	public static CrossOverStrategy getInstance() {
 		return instance;
 	}
 	/*
@@ -36,18 +36,20 @@ public class MutationStrategy implements GeneticAlgorithm {
 	 */
 	@Override
 	public void doGAProcess() {
-		System.out.println("MUTATION...");
+		System.out.println("CROSSOVER...");
 	}
 
-	 // Mutate an individual
-    public static void mutate(Individual indiv) {
+	public static Individual crossover(Individual indiv1, Individual indiv2) {
+        Individual newSol = new Individual();
         // Loop through genes
-        for (int i = 0; i < indiv.size(); i++) {
-            if (Math.random() <= mutationRate) {
-                // Create random gene
-                byte gene = (byte) Math.round(Math.random());
-                indiv.setGene(i, gene);
+        for (int i = 0; i < indiv1.size(); i++) {
+            // Crossover
+            if (Math.random() <= uniformRate) {
+                newSol.setGene(i, indiv1.getGene(i));
+            } else {
+                newSol.setGene(i, indiv2.getGene(i));
             }
         }
+        return newSol;
     }
 }
